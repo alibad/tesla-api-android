@@ -18,3 +18,7 @@ Just in case you wanted to clear that token and generate a new one, you should:
 * Put a breakpoint anywhere in the app and start the debugger
 * Run this code fragment (or evaluate expression): `AppSettings.clear()`
 * Restart the app. This will now prompt you to login again
+
+## Contributors:
+* Ali Badereddin @alibad
+* Ryan Moore @rmooreID
