@@ -1,0 +1,1130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <TextView
+        android:id="@+id/charge_state_welcome_text"
+        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/charge_state_welcome_text"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/charge_state_welcome_text">
+
+        <TableLayout
+            android:id="@+id/charge_state_table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="battery_heater_on"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/battery_heater_on_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="battery_level"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/battery_level_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="battery_range"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/battery_range_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="charge_current_request"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/charge_current_request_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="charge_current_request_max"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/charge_current_request_max_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="charge_enable_request"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/charge_enable_request_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="charge_energy_added"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/charge_energy_added_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="charge_limit_soc"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/charge_limit_soc_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="charge_limit_soc_max"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/charge_limit_soc_max_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="charge_limit_soc_min"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/charge_limit_soc_min_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="charge_limit_soc_std"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/charge_limit_soc_std_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="charge_miles_added_ideal"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/charge_miles_added_ideal_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="charge_miles_added_rated"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/charge_miles_added_rated_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="charge_port_cold_weather_mode"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/charge_port_cold_weather_mode_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="charge_port_door_open"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/charge_port_door_open_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="charge_port_latch"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/charge_port_latch_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="charge_rate"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/charge_rate_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="charge_to_max_range"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/charge_to_max_range_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="charger_actual_current"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/charger_actual_current_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="charger_phases"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/charger_phases_text_views"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="charger_pilot_current"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/charger_pilot_current_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="charger_power"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/charger_power_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="charger_voltage"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/charger_voltage_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="charging_state"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/charging_state_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="conn_charge_cable"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/conn_charge_cable_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="est_battery_range"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/est_battery_range_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="fast_charger_brand"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/fast_charger_brand_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="fast_charger_present"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/fast_charger_present_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="fast_charger_type"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/fast_charger_type_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="ideal_battery_range"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/ideal_battery_range_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="managed_charging_active"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/managed_charging_active_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="managed_charging_start_time"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/managed_charging_start_time_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="managed_charging_user_canceled"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/managed_charging_user_canceled_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="max_range_charge_counter"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/max_range_charge_counter_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="minutes_to_full_charge"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/minutes_to_full_charge_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="not_enough_power_to_heat"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/not_enough_power_to_heat_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="scheduled_charging_pending"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/scheduled_charging_pending_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="scheduled_charging_start_time"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/scheduled_charging_start_time_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="time_to_full_charge"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/time_to_full_charge_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="timestamp"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/timestamp_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="trip_charging"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/trip_charging_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="usable_battery_level"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/usable_battery_level_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="user_charge_enable_request"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/user_charge_enable_request_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+
+        </TableLayout>
+
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

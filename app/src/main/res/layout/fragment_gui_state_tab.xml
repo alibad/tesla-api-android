@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <TextView
+        android:id="@+id/gui_state_welcome_text"
+        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/gui_state_welcome_text"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gui_state_welcome_text">
+
+        <TableLayout
+            android:id="@+id/gui_state_table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="gui_distance_units"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/gui_distance_units_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="gui_temperature_units"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/gui_temperature_units_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="gui_charge_rate_units"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/gui_charge_rate_units_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="gui_24_hour_time"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/gui_24_hour_time_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="gui_range_display"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/gui_range_display_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="gui_range_units"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/gui_range_units_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="timestamp"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/timestamp_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+        </TableLayout>
+
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

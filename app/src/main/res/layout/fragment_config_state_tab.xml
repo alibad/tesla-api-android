@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <TextView
+        android:id="@+id/config_state_welcome_text"
+        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/config_state_welcome_text"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/config_state_welcome_text">
+
+        <TableLayout
+            android:id="@+id/config_state_table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="can_accept_navigation_requests"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/can_accept_navigation_requests_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="can_actuate_trunks"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/can_actuate_trunks_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="car_special_type"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/car_special_type_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="car_type"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/car_type_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="charge_port_type"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/charge_port_type_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="ece_restrictions"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/ece_restrictions_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="eu_vehicle"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/eu_vehicle_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="exterior_color"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/exterior_color_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="has_air_suspension"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/has_air_suspension_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="has_ludicrous_mode"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/has_ludicrous_mode_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="key_version"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/key_version_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="motorized_charge_port"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/motorized_charge_port_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="plg"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/plg_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="rear_seat_heaters"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/rear_seat_heaters_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="rear_seat_type"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/rear_seat_type_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="rhd"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/rhd_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="roof_color"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/roof_color_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="seat_type"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/seat_type_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="spoiler_type"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/spoiler_type_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="sun_roof_installed"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/sun_roof_installed_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="third_row_seats"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/third_row_seats_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="use_range_badging"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/use_range_badging_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="wheel_type"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/wheel_type_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="timestamp"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+
+                <TextView
+                    android:id="@+id/timestamp_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/secondary_cell"
+                    android:padding="@dimen/cell_padding"
+                    android:text="Loading..."
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="@dimen/cell_text_size"  />
+            </TableRow>
+
+        </TableLayout>
+
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
