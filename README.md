@@ -1,3 +1,6 @@
+## The Tesla API Sandbox App
+[Read more and discuss with the contributors at cTrl Blog](https://www.ctrl-iot.com/post/the-tesla-api-sandbox-app)
+
 # Running the app (v 0.1)
 
 * Install Android Studio
