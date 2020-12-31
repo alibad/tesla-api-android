@@ -1,3 +1,6 @@
+## The Tesla API Sandbox App
+[Read more and discuss with the contributors at cTrl Blog](https://www.ctrl-iot.com/post/the-tesla-api-sandbox-app)
+
 # Running the app (v 0.1)
 
 * Install Android Studio
@@ -18,3 +21,7 @@ Just in case you wanted to clear that token and generate a new one, you should:
 * Put a breakpoint anywhere in the app and start the debugger
 * Run this code fragment (or evaluate expression): `AppSettings.clear()`
 * Restart the app. This will now prompt you to login again
+
+## Contributors:
+* Ali Badereddin @alibad
+* Ryan Moore @rmooreID
