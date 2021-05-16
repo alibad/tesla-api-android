@@ -6,11 +6,11 @@ import androidx.lifecycle.ViewModel;
 
 import android.util.Patterns;
 
-import com.tesla.api.data.LoginRepository;
+import com.tesla.api.R;
+import com.tesla.api.auth.LoginRepository;
 import com.tesla.api.data.Result;
 import com.tesla.api.data.TeslaAPIWrapper;
 import com.tesla.api.data.model.LoggedInUser;
-import com.tesla.api.R;
 import com.tesla.api.data.model.Vehicle;
 import com.tesla.api.data.model.VehicleList;
 

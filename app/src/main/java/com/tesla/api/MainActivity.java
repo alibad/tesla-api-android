@@ -7,6 +7,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.tesla.api.ui.login.LoginActivity;
+import com.tesla.api.ui.auth.AppAuthLoginActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
                 AppSettings.clear();
 
-                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                Intent i = new Intent(getApplicationContext(), AppAuthLoginActivity.class);
                 startActivity(i);
 
                 return true;

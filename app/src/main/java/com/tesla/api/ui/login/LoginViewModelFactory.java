@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.annotation.NonNull;
 
-import com.tesla.api.data.LoginDataSource;
-import com.tesla.api.data.LoginRepository;
+import com.tesla.api.auth.LoginDataSource;
+import com.tesla.api.auth.LoginRepository;
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.

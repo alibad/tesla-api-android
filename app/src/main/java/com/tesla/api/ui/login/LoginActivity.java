@@ -23,8 +23,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.tesla.api.MainActivity;
 import com.tesla.api.R;
+import com.tesla.api.MainActivity;
 
 public class LoginActivity extends AppCompatActivity {
 

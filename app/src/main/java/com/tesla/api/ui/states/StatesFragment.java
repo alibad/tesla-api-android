@@ -13,9 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.tesla.api.R;
 import com.google.android.material.tabs.TabLayout;
 import com.tesla.api.CtrlApp;
-import com.tesla.api.R;
 import com.tesla.api.data.Result;
 import com.tesla.api.data.TeslaAPIWrapper;
 import com.tesla.api.data.model.Vehicle;

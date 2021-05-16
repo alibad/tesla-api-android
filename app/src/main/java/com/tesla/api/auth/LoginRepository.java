@@ -1,5 +1,6 @@
-package com.tesla.api.data;
+package com.tesla.api.auth;
 
+import com.tesla.api.data.Result;
 import com.tesla.api.data.model.LoggedInUser;
 
 /**
