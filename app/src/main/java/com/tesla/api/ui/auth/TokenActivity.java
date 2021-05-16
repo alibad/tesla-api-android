@@ -14,6 +14,8 @@
 
 package com.tesla.api.ui.auth;
 
+import com.tesla.api.AppSettings;
+import com.tesla.api.MainActivity;
 import com.tesla.api.R;
 
 import android.app.Activity;
@@ -21,7 +23,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.MainThread;
@@ -31,6 +32,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.snackbar.Snackbar;
 import com.tesla.api.auth.AuthStateManager;
 import com.tesla.api.auth.Configuration;
+import com.tesla.api.data.Result;
+import com.tesla.api.data.TeslaAPIWrapper;
+import com.tesla.api.data.model.Vehicle;
+import com.tesla.api.data.model.VehicleList;
+
+import org.joda.time.format.DateTimeFormat;
 
 import net.openid.appauth.AppAuthConfiguration;
 import net.openid.appauth.AuthState;
@@ -69,7 +76,7 @@ public class TokenActivity extends AppCompatActivity {
 
     private static final String KEY_USER_INFO = "userInfo";
 
-    private static final int END_SESSION_REQUEST_CODE = 911;
+    public static final int END_SESSION_REQUEST_CODE = 911;
 
     private AuthorizationService mAuthService;
     private AuthStateManager mStateManager;
@@ -125,7 +132,51 @@ public class TokenActivity extends AppCompatActivity {
         AuthState authState = mStateManager.getCurrent();
 
         if (authState.isAuthorized()) {
+            String accessToken = authState.getAccessToken();
+
+            if (accessToken == null) {
+                displayNotAuthorized(getResources().getString(R.string.no_access_token_returned));
+            } else {
+                Long expiresAt = authState.getAccessTokenExpirationTime();
+
+                if (expiresAt < System.currentTimeMillis()) {
+                    displayNotAuthorized(getResources().getString(R.string.access_token_expired));
+                } else {
+                    String expiry;
+
+                    if (expiresAt == null) {
+                        expiry = getResources().getString(R.string.no_access_token_expiry);
+                    } else {
+                        String template = getResources().getString(R.string.access_token_expires_at);
+                        expiry = String.format(template,
+                                DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss ZZ").print(expiresAt));
+                    }
+
+                    AppSettings.put(AppSettings.ACCESS_TOKEN, accessToken);
+                    AppSettings.put(AppSettings.TOKEN_REFRESH_DATE, Long.toString(System.currentTimeMillis()));
+
+                    String refreshToken = authState.getRefreshToken();
+                    AppSettings.put(AppSettings.REFRESH_TOKEN, refreshToken);
+
+                    // On successful login, make a call to get the list of vehicles
+                    // TODO: refactor with VehicleRepository
+                    Result<VehicleList> result2 = TeslaAPIWrapper.getInstance().getVehicleList();
+                    if (result2 instanceof Result.Success) {
+                        VehicleList list = ((Result.Success<VehicleList>) result2).getData();
+                        for (Vehicle vehicle:
+                                list.getResponse()) {
+
+                            System.out.println(vehicle.getDisplayName());
+                        }
+                    }
+                }
+            }
+
             displayAuthorized();
+
+            // To refresh access token, call this method: refreshAccessToken()
+            // To log out, call this method: endSession()
+
             return;
         }
 
@@ -168,6 +219,16 @@ public class TokenActivity extends AppCompatActivity {
     }
 
     @MainThread
+    private void displayAuthorized() {
+        String welcome = getString(R.string.welcome) ;
+
+        Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+
+        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(i);
+    }
+
+    @MainThread
     private void displayNotAuthorized(String explanation) {
         findViewById(R.id.not_authorized).setVisibility(View.VISIBLE);
         findViewById(R.id.authorized).setVisibility(View.GONE);
@@ -184,79 +245,6 @@ public class TokenActivity extends AppCompatActivity {
         findViewById(R.id.not_authorized).setVisibility(View.GONE);
 
         ((TextView)findViewById(R.id.loading_description)).setText(message);
-    }
-
-    @MainThread
-    private void displayAuthorized() {
-        findViewById(R.id.authorized).setVisibility(View.VISIBLE);
-        findViewById(R.id.not_authorized).setVisibility(View.GONE);
-        findViewById(R.id.loading_container).setVisibility(View.GONE);
-
-        AuthState state = mStateManager.getCurrent();
-
-        TextView refreshTokenInfoView = findViewById(R.id.refresh_token_info);
-        refreshTokenInfoView.setText((state.getRefreshToken() == null)
-                ? R.string.no_refresh_token_returned
-                : R.string.refresh_token_returned);
-
-        TextView idTokenInfoView = (TextView) findViewById(R.id.id_token_info);
-        idTokenInfoView.setText((state.getIdToken()) == null
-                ? R.string.no_id_token_returned
-                : R.string.id_token_returned);
-
-        TextView accessTokenInfoView = (TextView) findViewById(R.id.access_token_info);
-        if (state.getAccessToken() == null) {
-            accessTokenInfoView.setText(R.string.no_access_token_returned);
-        } else {
-            Long expiresAt = state.getAccessTokenExpirationTime();
-            if (expiresAt == null) {
-                accessTokenInfoView.setText(R.string.no_access_token_expiry);
-            } else if (expiresAt < System.currentTimeMillis()) {
-                accessTokenInfoView.setText(R.string.access_token_expired);
-            } else {
-                String template = getResources().getString(R.string.access_token_expires_at);
-                accessTokenInfoView.setText(String.format(template, expiresAt));
-            }
-        }
-
-        Button refreshTokenButton = (Button) findViewById(R.id.refresh_token);
-        refreshTokenButton.setVisibility(state.getRefreshToken() != null
-                ? View.VISIBLE
-                : View.GONE);
-        refreshTokenButton.setOnClickListener((View view) -> refreshAccessToken());
-
-        Button viewProfileButton = (Button) findViewById(R.id.view_profile);
-
-        AuthorizationServiceDiscovery discoveryDoc =
-                state.getAuthorizationServiceConfiguration().discoveryDoc;
-        if ((discoveryDoc == null || discoveryDoc.getUserinfoEndpoint() == null)
-                && mConfiguration.getUserInfoEndpointUri() == null) {
-            viewProfileButton.setVisibility(View.GONE);
-        } else {
-            viewProfileButton.setVisibility(View.VISIBLE);
-            viewProfileButton.setOnClickListener((View view) -> fetchUserInfo());
-        }
-
-        findViewById(R.id.sign_out).setOnClickListener((View view) -> endSession());
-
-        View userInfoCard = findViewById(R.id.userinfo_card);
-        JSONObject userInfo = mUserInfoJson.get();
-        if (userInfo == null) {
-            userInfoCard.setVisibility(View.INVISIBLE);
-        } else {
-            try {
-                String name = "???";
-                if (userInfo.has("name")) {
-                    name = userInfo.getString("name");
-                }
-                ((TextView) findViewById(R.id.userinfo_name)).setText(name);
-
-                ((TextView) findViewById(R.id.userinfo_json)).setText(mUserInfoJson.toString());
-                userInfoCard.setVisibility(View.VISIBLE);
-            } catch (JSONException ex) {
-                Log.e(TAG, "Failed to read userinfo JSON", ex);
-            }
-        }
     }
 
     @MainThread
