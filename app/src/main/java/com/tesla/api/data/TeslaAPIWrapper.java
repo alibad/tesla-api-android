@@ -57,51 +57,6 @@ public class TeslaAPIWrapper {
         }
     }
 
-    public Result<LoggedInUser> login(String userName, String password) {
-        JSONObject jObjectType = new JSONObject();
-        try {
-            jObjectType.put("grant_type", "password");
-            jObjectType.put("client_id", "81527cff06843c8634fdc09e8ac0abefb46ac849f38fe1e431c2ef2106796384");
-            jObjectType.put("client_secret", "c7257eb71a564034f9419ee651c7d0e5f7aa6bfbd18bafb5c5c033b093bb2fa3");
-            jObjectType.put("email", userName);
-            jObjectType.put("password", password);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        AppSettings.put(AppSettings.USER_EMAIL, userName);
-
-        CompletableFuture<String> future = post(authPath, jObjectType.toString(), false);
-
-        try {
-            String resultJson = future.get();
-
-            LoginSuccess result = JsonUtil.getGson().fromJson(resultJson, LoginSuccess.class);
-
-            LoggedInUser user =
-                    new LoggedInUser(
-                            java.util.UUID.randomUUID().toString(),
-                            userName,
-                            result);
-
-            String accessToken = result.getAccessToken();
-
-            if(accessToken == null) {
-                throw new Exception(resultJson);
-            }
-
-            AppSettings.put(AppSettings.ACCESS_TOKEN, accessToken);
-            AppSettings.put(AppSettings.TOKEN_REFRESH_DATE, Long.toString(System.currentTimeMillis()));
-
-            String refreshToken = result.getRefreshToken();
-            AppSettings.put(AppSettings.REFRESH_TOKEN, refreshToken);
-
-            return new Result.Success<LoggedInUser>(user);
-        } catch (Exception e) {
-            return new Result.Error(e);
-        }
-    }
-
     public Result<LoginSuccess> refreshToken() {
         String refreshToken = AppSettings.get(AppSettings.REFRESH_TOKEN);
 
@@ -235,7 +190,18 @@ public class TeslaAPIWrapper {
     }
 
     public void wakeUpVehicleAsync(final VehicleInterface vehicleCallback) {
-        String url = Paths.get(vehiclesPath, AppSettings.get(AppSettings.SELECTED_VEHICLE_ID), "wake_up").toString();
+        String selectedVehicle = AppSettings.get(AppSettings.SELECTED_VEHICLE_ID);
+
+        if (selectedVehicle == null) {
+            Result<VehicleList> result2 = getVehicleList();
+            if (result2 instanceof Result.Success) {
+                selectedVehicle = AppSettings.get(AppSettings.SELECTED_VEHICLE_ID);
+            } else {
+                return;
+            }
+        }
+
+        String url = Paths.get(vehiclesPath, selectedVehicle , "wake_up").toString();
 
         postAsync(url, new Callback() {
             @Override public void onFailure(Call call, IOException e) {

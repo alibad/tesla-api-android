@@ -1,0 +1,11 @@
+{
+  "client_id": "ownerapi",
+  "redirect_uri": "https://auth.tesla.com/void/callback",
+  "end_session_redirect_uri": "https://auth.tesla.com/void/callback",
+  "end_session_endpoint": "https://auth.tesla.com/oauth2/v3/logout",
+  "authorization_scope": "openid email offline_access",
+  "authorization_endpoint_uri": "https://auth.tesla.com/oauth2/v3/authorize",
+  "token_endpoint_uri": "https://auth.tesla.com/oauth2/v3/token",
+  "user_info_endpoint_uri": "https://auth.tesla.com/oauth2/v3/authorize",
+  "https_required": true
+}
