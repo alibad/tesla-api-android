@@ -8,10 +8,8 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.snackbar.Snackbar;
 import com.tesla.api.auth.AuthStateManager;
 import com.tesla.api.auth.Configuration;
-import com.tesla.api.ui.login.LoginActivity;
 import com.tesla.api.ui.auth.AppAuthLoginActivity;
 
 import androidx.annotation.MainThread;

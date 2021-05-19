@@ -99,8 +99,6 @@ public final class AppAuthLoginActivity extends AppCompatActivity {
     private CountDownLatch mAuthIntentLatch = new CountDownLatch(1);
     private ExecutorService mExecutor;
 
-    private boolean mUsePendingIntents;
-
     @NonNull
     private BrowserMatcher mBrowserMatcher = AnyBrowserMatcher.INSTANCE;
 
@@ -189,8 +187,6 @@ public final class AppAuthLoginActivity extends AppCompatActivity {
     @MainThread
     void startAuth() {
         displayLoading("Making authorization request");
-
-        mUsePendingIntents = ((CheckBox) findViewById(R.id.pending_intents_checkbox)).isChecked();
 
         // WrongThread inference is incorrect for lambdas
         // noinspection WrongThread
@@ -354,23 +350,10 @@ public final class AppAuthLoginActivity extends AppCompatActivity {
             Log.w(TAG, "Interrupted while waiting for auth intent");
         }
 
-        if (mUsePendingIntents) {
-            Intent completionIntent = new Intent(this, TokenActivity.class);
-            Intent cancelIntent = new Intent(this, AppAuthLoginActivity.class);
-            cancelIntent.putExtra(EXTRA_FAILED, true);
-            cancelIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-            mAuthService.performAuthorizationRequest(
-                    mAuthRequest.get(),
-                    PendingIntent.getActivity(this, 0, completionIntent, 0),
-                    PendingIntent.getActivity(this, 0, cancelIntent, 0),
-                    mAuthIntent.get());
-        } else {
-            Intent intent = mAuthService.getAuthorizationRequestIntent(
-                    mAuthRequest.get(),
-                    mAuthIntent.get());
-            startActivityForResult(intent, RC_AUTH);
-        }
+        Intent intent = mAuthService.getAuthorizationRequestIntent(
+                mAuthRequest.get(),
+                mAuthIntent.get());
+        startActivityForResult(intent, RC_AUTH);
     }
 
     private void recreateAuthorizationService() {

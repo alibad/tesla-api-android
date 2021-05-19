@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.tesla.api.ui.auth.AppAuthLoginActivity;
-import com.tesla.api.ui.login.LoginActivity;
 
 public class MainEmptyActivity extends AppCompatActivity {
 
