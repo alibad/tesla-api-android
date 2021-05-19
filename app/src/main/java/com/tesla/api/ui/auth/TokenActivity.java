@@ -151,24 +151,6 @@ public class TokenActivity extends AppCompatActivity {
                         expiry = String.format(template,
                                 DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss ZZ").print(expiresAt));
                     }
-
-                    AppSettings.put(AppSettings.ACCESS_TOKEN, accessToken);
-                    AppSettings.put(AppSettings.TOKEN_REFRESH_DATE, Long.toString(System.currentTimeMillis()));
-
-                    String refreshToken = authState.getRefreshToken();
-                    AppSettings.put(AppSettings.REFRESH_TOKEN, refreshToken);
-
-                    // On successful login, make a call to get the list of vehicles
-                    // TODO: refactor with VehicleRepository
-                    Result<VehicleList> result2 = TeslaAPIWrapper.getInstance().getVehicleList();
-                    if (result2 instanceof Result.Success) {
-                        VehicleList list = ((Result.Success<VehicleList>) result2).getData();
-                        for (Vehicle vehicle:
-                                list.getResponse()) {
-
-                            System.out.println(vehicle.getDisplayName());
-                        }
-                    }
                 }
             }
 
@@ -220,12 +202,35 @@ public class TokenActivity extends AppCompatActivity {
 
     @MainThread
     private void displayAuthorized() {
+        saveToken();
+
         String welcome = getString(R.string.welcome) ;
 
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
 
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(i);
+    }
+
+    private void saveToken() {
+        AuthState authState = mStateManager.getCurrent();
+        AppSettings.put(AppSettings.ACCESS_TOKEN, authState.getAccessToken());
+        AppSettings.put(AppSettings.TOKEN_REFRESH_DATE, Long.toString(System.currentTimeMillis()));
+
+        String refreshToken = authState.getRefreshToken();
+        AppSettings.put(AppSettings.REFRESH_TOKEN, refreshToken);
+
+        // On successful login, make a call to get the list of vehicles
+        // TODO: refactor with VehicleRepository
+        Result<VehicleList> result2 = TeslaAPIWrapper.getInstance().getVehicleList();
+        if (result2 instanceof Result.Success) {
+            VehicleList list = ((Result.Success<VehicleList>) result2).getData();
+            for (Vehicle vehicle:
+                    list.getResponse()) {
+
+                System.out.println(vehicle.getDisplayName());
+            }
+        }
     }
 
     @MainThread
@@ -413,6 +418,8 @@ public class TokenActivity extends AppCompatActivity {
 
     @MainThread
     private void signOut() {
+        AppSettings.clear();
+
         // discard the authorization and token state, but retain the configuration and
         // dynamic client registration (if applicable), to save from retrieving them again.
         AuthState currentState = mStateManager.getCurrent();

@@ -235,7 +235,18 @@ public class TeslaAPIWrapper {
     }
 
     public void wakeUpVehicleAsync(final VehicleInterface vehicleCallback) {
-        String url = Paths.get(vehiclesPath, AppSettings.get(AppSettings.SELECTED_VEHICLE_ID), "wake_up").toString();
+        String selectedVehicle = AppSettings.get(AppSettings.SELECTED_VEHICLE_ID);
+
+        if (selectedVehicle == null) {
+            Result<VehicleList> result2 = getVehicleList();
+            if (result2 instanceof Result.Success) {
+                selectedVehicle = AppSettings.get(AppSettings.SELECTED_VEHICLE_ID);
+            } else {
+                return;
+            }
+        }
+
+        String url = Paths.get(vehiclesPath, selectedVehicle , "wake_up").toString();
 
         postAsync(url, new Callback() {
             @Override public void onFailure(Call call, IOException e) {
